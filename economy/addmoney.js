@@ -18,7 +18,7 @@ module.exports = {
 
         let moneyEmbed = new MessageEmbed()
             .setColor("GREEN")
-            .setDescription(`✅ Đã tham nhũng ${args[1]} coins\n\nTổng tài khoảng: ${bal}`);
+            .setDescription(`✅ Đã tham nhũng ${args[1]} coins\n\nTổng tài khoản: ${bal}`);
         message.channel.send({embeds: [moneyEmbed]})
 
     }
