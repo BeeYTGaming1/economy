@@ -1,5 +1,6 @@
-# economy
+# Economy
 Economy For **DISCORD** version 13, use module **QUICK.DB**
+
 # How to use
 **Install module**: 
     `quick.db` `discord.js` `ms`
