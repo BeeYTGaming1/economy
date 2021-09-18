@@ -15,7 +15,7 @@ module.exports = {
 
             let embedbank = new MessageEmbed()
                 .setColor('GREEN')
-                .setDescription("❌ Quá nghèo, bạn không có đủ coin")
+                .setDescription("❌ You don't have money to deposit")
 
             if (!money) return message.channel.send({embeds: [embedbank]})
 
@@ -23,14 +23,14 @@ module.exports = {
             db.add(`bank_${user.id}`, money)
             let sembed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ Bạn vừa đặt cọc hết sạch tiền túi vô ngân hàng!`);
+                .setDescription(`✅ You have just deposited all your money in the bank!`);
             message.channel.send({embeds: [sembed]})
 
         } else {
 
             let embed2 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Hãy điền một con số`);
+                .setDescription(`❌ Please enter a number`);
 
             if (!args[0]) {
                 return message.channel.send({embed: [embed2]})
@@ -38,7 +38,7 @@ module.exports = {
             }
             let embed6 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Hãy điền chữ số hợp lệ`)
+                .setDescription(`❌ Please enter valid digits`)
 
             if(isNaN(args[0])) {
                 return message.channel.send({embeds: [embed6]})
@@ -46,14 +46,14 @@ module.exports = {
             }
             let embed3 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Bạn không thể gửi tiền âm`);
+                .setDescription(`❌ You cannot deposit negative money`);
 
             if (message.content.includes('-')) {
                 return message.channel.send({embeds: [embed3]})
             }
             let embed4 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Bạn không có đủ tiền`);
+                .setDescription(`❌ You do not have enough money`);
 
             if (member < args[0]) {
                 return message.channel.send({embeds: [embed4]})
@@ -61,7 +61,7 @@ module.exports = {
 
             let embed5 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ Bạn vừa đặt cọc ${args[0]} coins vô ngân hàng`);
+                .setDescription(`✅ You just made a deposit ${args[0]} coins in the bank`);
 
             message.channel.send({embeds: [embed5]})
             db.subtract(`money_${user.id}`, args[0])

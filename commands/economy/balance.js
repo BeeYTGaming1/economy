@@ -29,11 +29,11 @@ module.exports = {
       let moneyEmbed = new MessageEmbed()
         .setColor("GREEN")
         .setDescription(
-          `**Tài khoảng của ${user.user.username}**\n\nTiền túi: ${bal}\nTiền ngân hàng: ${bank}`
+          `**Balance's ${user.user.username}**\n\nPocket: ${bal}\nBank: ${bank}`
         );
       message.channel.send({embeds: [moneyEmbed]});
     } else {
-      return message.channel.send("**Không tìm thấy tài khoản!**");
+      return message.channel.send("**Account not found!**");
     }
   }
 };

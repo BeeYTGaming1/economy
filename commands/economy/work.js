@@ -1,6 +1,6 @@
 const db = require('quick.db')
 const { MessageEmbed } = require('discord.js')
-const ms = require("ms");
+const ms = require("parse-ms");
 const Jwork = require('../../data/works.json');
 const JworkR = Jwork[Math.floor(Math.random() * Jwork.length)];
 
@@ -19,8 +19,8 @@ module.exports = {
 
             let timeEmbed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`🛌 Bạn đã làm việc rồi giờ phải nghỉ ngơi thôi!\n\nBạn đang ngủ và thức dậy sớm thôi!`);
-            message.channel.send({embed: [timeEmbed]})
+                .setDescription(`🛌 You've worked, now it's time to rest!\n\nCome back in ${time.minutes}m ${time.seconds}s`);
+            message.channel.send({embeds: [timeEmbed]})
         } else {
             let amount = Math.floor(Math.random() * 80) + 1;
             let embed1 = new MessageEmbed()

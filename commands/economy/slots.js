@@ -14,11 +14,11 @@ module.exports = {
 
     let moneymore = new MessageEmbed()
     .setColor("GREEN")
-    .setDescription(`❌ Bạn không có đủ tiền để mua lượt quay!`);
+    .setDescription(`❌ You don't have enough money`);
 
     let moneyhelp = new MessageEmbed()
     .setColor("GREEN")
-    .setDescription(`❌ Hãy nhập chữ số hợp lệ`); 
+    .setDescription(`❌ Please choose a number`); 
 
     if (!money) return message.channel.send({embeds: [moneyhelp]});
     if (money > moneydb) return message.channel.send({embeds: [moneymore]});
@@ -35,7 +35,7 @@ module.exports = {
     }
     if (win) {
         let slotsEmbed1 = new MessageEmbed()
-            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nBạn thật may mắn hãy nhận ${money} coins`)
+            .setDescription(`${slotItems[number[0]]} | ${slotItems[number[1]]} | ${slotItems[number[2]]}\n\nYou lucky and receive ${money} coins`)
             .setColor("GREEN")
         message.channel.send({embeds: [slotsEmbed1]})
         db.add(`money_${user.id}`, money)

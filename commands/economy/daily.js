@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
-const ms = require("ms");
+const ms = require("parse-ms");
 
 module.exports = {
     name: "daily",
@@ -18,12 +18,12 @@ module.exports = {
 
             let timeEmbed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Ê nè người anh em, bạn vừa nhận lương rồi mà nhỉ!\n\nHãy quay lại vào ngày mai!`);
+                .setDescription(`❌ You got daily\n\nCome back in ${time.minutes}m ${time.seconds}s`);
             message.channel.send({embeds: [timeEmbed]})
         } else {
             let moneyEmbed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ Bạn vừa lĩnh lương được ${amount} coins`);
+                .setDescription(`✅ you have received ${amount} coins`);
             message.channel.send({embeds: [moneyEmbed]})
             db.add(`money_${user.id}`, amount)
             db.set(`daily_${user.id}`, Date.now())

@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
-const ms = require("ms");
+const ms = require("parse-ms");
 
 module.exports = {
     name: "weekly",
@@ -18,7 +18,7 @@ module.exports = {
 
             let timeEmbed = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Anh bạn nhận lương rồi, tính làm gì!\n\nHạn lương tiếp theo là vào tuần sau!`);
+                .setDescription(`❌ You have received your weekly reward!\n\nCome back in ${time.days} ${time.minutes}m ${time.seconds}s`);
             message.channel.send({embeds: [timeEmbed]})
         } else {
             let moneyEmbed = new MessageEmbed()

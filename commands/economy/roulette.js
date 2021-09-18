@@ -30,15 +30,15 @@ module.exports = {
 
         let moneyhelp = new MessageEmbed()
             .setColor("GREEN")
-            .setDescription(`❌ Chỉ định số tiền để đánh bạc | ${prefix}roulette <color> <amount>`);
+            .setDescription(`❌ Please choose a number | ${prefix}roulette <color> <amount>`);
 
         let moneymore = new MessageEmbed()
             .setColor("GREEN")
-            .setDescription(`❌ Bạn đang đặt cược nhiều hơn những gì bạn có`);
+            .setDescription(`❌ You don't have enough money`);
 
         let colorbad = new MessageEmbed()
             .setColor("GREEN")
-            .setDescription(`❌ Chỉ định một màu sác hợp lệ | Red [1.5x] (normal) Black [2x] (hard) Green [15x](rare)`);
+            .setDescription(`❌ Specify a valid color | Red [1.5x] (normal) Black [2x] (hard) Green [15x](rare)`);
 
         if (!colour) return message.channel.send({embeds: [colorbad]});
         colour = colour.toLowerCase()
@@ -55,27 +55,27 @@ module.exports = {
             db.add(`money_${user.id}`, money)
             let moneyEmbed1 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`✅ Bạn thắng và ăn cả ${money} coins\n\nHệ số nhân: 15x`);
+                .setDescription(`✅ You won ${money} coins\n\nMultiplier: 15x`);
             message.channel.send({embeds: [moneyEmbed1]})
         } else if (isOdd(random) && colour == 1) { // Red
             money = parseInt(money * 1.5)
             db.add(`money_${user.id}`, money)
             let moneyEmbed2 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`🔴 Bạn thắng và ăn cả ${money} coins\n\nHệ số nhân: 1.5x`);
+                .setDescription(`🔴 You won ${money} coins\n\nMultiplier: 1.5x`);
             message.channel.send({embeds: [moneyEmbed2]})
         } else if (!isOdd(random) && colour == 0) { // Black
             money = parseInt(money * 2)
             db.add(`money_${user.id}`, money)
             let moneyEmbed3 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`⬛ Bạn thắng và ăn cả ${money} coins\n\nHệ số nhân: 2x`);
+                .setDescription(`⬛ You won ${money} coins\n\nMultiplier 2x`);
             message.channel.send({embeds: [moneyEmbed3]})
         } else { // Wrong
             db.subtract(`money_${user.id}`, money)
             let moneyEmbed4 = new MessageEmbed()
                 .setColor("GREEN")
-                .setDescription(`❌ Bạn thua vì quá đen ${money} coins\n\nHệ số nhân: 0x`);
+                .setDescription(`❌ You lost ${money} coins\n\nMultiplier: 0x`);
             message.channel.send({embeds: [moneyEmbed4]})
         }
           db.add(`games_${user.id}`, 1)

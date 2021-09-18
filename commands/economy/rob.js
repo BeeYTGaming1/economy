@@ -1,20 +1,20 @@
 const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
-const ms = require("ms");
+const ms = require("parse-ms");
 
 module.exports = {
   name: "rob",
   aliases: ['thieves'],
   run: async (bot, message, args) => {
-    if (!args[0]) return message.channel.send("**Hãy chọn đối tượng!**")  
+    if (!args[0]) return message.channel.send("**Please choose a username**")  
     let user2 = message.author
 
     let user = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(r => r.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase());
-    if (!user) return message.channel.send("**Hãy dự tính mức trộm**")
+    if (!user) return message.channel.send("**Please choose a username**")
 
     let embed2 = new MessageEmbed()
       .setColor("GREEN")
-      .setDescription(`❌ Bạn không có thể móc túi của chính mình`)
+      .setDescription(`❌ You can't rob yourself`)
 
     if (user.user.id === message.author.id) {
       return message.channel.send({embeds: [embed2]})
@@ -31,13 +31,13 @@ module.exports = {
 
       let timeEmbed = new MessageEmbed()
         .setColor("GREEN")
-        .setDescription(`🛌 Bạn đã làm trộm cả một giây giờ phải nghỉ ngơi thôi!\n\nHãy đợi hồi sức trong vòng ${time.minutes}phút ${time.seconds}giây `);
+        .setDescription(`🛌 You stole a second, now it's time to rest!\n\nReturn in ${time.minutes}m ${time.seconds}s `);
       message.channel.send({embeds: [timeEmbed]})
     } else {
 
       let moneyEmbed = new MessageEmbed()
         .setColor("GREEN")
-        .setDescription(`💲 Bạn giàu phải giữ thể diện chứ!`);
+        .setDescription(`💲 You rich must save face!`);
 
       if (author2 > 1000) {
         return message.channel.send({embeds: [moneyEmbed]})
@@ -45,7 +45,7 @@ module.exports = {
       }
       let moneyEmbed2 = new MessageEmbed()
         .setColor("GREEN")
-        .setDescription(`❌ ${user.user.username} cũng thất nghiệp như bạn không có nổi một xu`);
+        .setDescription(`❌ ${user.user.username} don't have money in pocket`);
 
       let random = Math.floor((Math.random() * 100)) + 1;
 
@@ -54,7 +54,7 @@ module.exports = {
       } else {
 
         let embed = new MessageEmbed()
-          .setDescription(`✅ Bạn vừa móc túi ${user.user.username} và thu về ${random} coins`)
+          .setDescription(`✅ Completed, you just robbed ${user.user.username} and receive ${random} coins`)
           .setColor("GREEN")
         message.channel.send({embeds: [embed]})
 

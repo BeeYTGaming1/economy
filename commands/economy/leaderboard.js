@@ -10,7 +10,7 @@ module.exports = {
             let noEmbed = new MessageEmbed()
                 .setAuthor(message.member.displayName, message.author.displayAvatarURL())
                 .setColor("GREEN")
-                .setFooter("Server toàn người nghèo!")
+                .setFooter("Server has no leaderboard")
             return message.channel.send({embeds: [noEmbed]})
         };
 
@@ -22,7 +22,7 @@ module.exports = {
         };
 
         const embed = new MessageEmbed()
-            .setTitle(`Bảng xếp hạng của nhà nước ${message.guild.name}`)
+            .setTitle(`State rankings ${message.guild.name}`)
             .setColor("GREEN")
             .setDescription(finalLb)
             .setFooter(bot.user.tag, bot.user.displayAvatarURL())
