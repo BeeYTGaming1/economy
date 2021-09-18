@@ -6,6 +6,10 @@ That's interesting isn't it?
 
 Not stopping there, we also
 
+
+**[Economy New](https://github.com/BeeYTGaming1/economy/tree/en.-economy)**
+
+
 # New Command ✔
 
 ➕ __New__
