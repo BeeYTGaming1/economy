@@ -1,18 +1,31 @@
-# Economy
-Economy For **DISCORD** version 13, use module **QUICK.DB**
+##                                                                     📊Economy-Syste📈
+# About ℹ
+**🎇🎇Surprise** We have updated the international language: English
 
-# How to use
-**Install module**: 
-    `quick.db` `discord.js` `ms`
-**Paste this code in your file code!**
+That's interesting isn't it?
 
-# Need Help ?
-  Add  Friend me: **JustDio#9277**
-  
-Copyright© by **JustDio#9277** 
+Not stopping there, we also
 
-# So what can I exchange?
+# New Command ✔
 
-  Of course, you can change the command name, another name, add an intro, etc. In addition, you can change the language from Vietnamese to English, ...
-  
-**THANK FOR USE MY CODE**
+➕ __New__
+  - **Up load Help command**
+    ![image](https://user-images.githubusercontent.com/88836000/133872063-ab0e70fc-1402-43ce-a83a-f7731f50b7cc.png)
+    **Fix Erro**
+    ~~can't send message~~
+    ~~undefin time~~
+ # How to use my system ? 🚁
+ `
+ npm i`
+**    => to dowload all module in pack**
+ 
+ - Edit token and prefix [Click](https://github.com/BeeYTGaming1/economy/blob/en.-economy/config.json)
+ ![image](https://user-images.githubusercontent.com/88836000/133879442-76f391d6-727d-4f01-910b-d887832c3d08.png)
+# 🚧 WARRING 
+**   If is not working, add Friend me JustDio#9277**
+
+# Thank for use my code
+**Invite My Bot**
+[here](https://bit.ly/invitemezpa)
+
+# THANK!!
